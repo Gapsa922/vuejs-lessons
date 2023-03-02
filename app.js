@@ -12,6 +12,7 @@ const app = Vue.createApp({
                 {tl:"Something", ath:"Something Else", img:"assets/1.jpg", isFav:true},
                 {tl:"Something", ath:"Something Else", img:"assets/2.jpg",isFav:false},
                 {tl:"Something", ath:"Something Else", img:"assets/3.jpg",isFav:true},
+                {tl:"Something", ath:"Something Else", img:"assets/3.jpg",isFav:true},
             ]
         }
     },
