@@ -2,9 +2,11 @@
   <h1>{{title}}</h1>
 <!--   <input type="text" ref="name">
   <button @click="handleClick">Click me</button> -->
-  <Modal />
+  <Modal :header="header" :text="text" theme='sale'/> <!-- the two dots means binding; example-binding a string with boolean  -->
+  <br/>
+  <Modal :header="header" :text="text" :theme='dark'/>  <!-- Why it prints dark if theres a binding? -->
+  
 </template>
-
 <script>
 import Modal from './components/Modal.vue'
 
@@ -13,7 +15,9 @@ export default {
   components:{ Modal },
   data(){
     return{
-      title:'My First Vue app'
+      title:'My First Vue app',
+      header:'Sign in the give away',
+      text:'Buy for half price'
     }
   },
   methods:{
