@@ -1,10 +1,14 @@
 <template>
   <h1>{{title}}</h1>
+  <p>Welcome...</p>
 <!--   <input type="text" ref="name">
   <button @click="handleClick">Click me</button> -->
-  <Modal :header="header" :text="text" theme='sale'/> <!-- the two dots means binding; example-binding a string with boolean  -->
-  <br/>
-  <Modal :header="header" :text="text" :theme='dark'/>  <!-- Why it prints dark if theres a binding? -->
+  <div v-if="showModal">
+    <Modal :header="header" :text="text" theme='sale' @close="toggleModal"/> <!-- the two dots means binding; example-binding a string with boolean  -->
+    <br/>
+    <Modal :header="header" :text="text" :theme='dark'/>  <!-- Why it prints dark if theres a binding? -->
+  </div>
+  <button @click="toggleModal">Open Modals</button>
   
 </template>
 <script>
@@ -17,7 +21,8 @@ export default {
     return{
       title:'My First Vue app',
       header:'Sign in the give away',
-      text:'Buy for half price'
+      text:'Buy for half price',
+      showModal:false
     }
   },
   methods:{
@@ -27,7 +32,11 @@ export default {
       //is going to add a class in input as active
       this.$refs.name.focus()
       //is going to focus the input field
+    },
+    toggleModal(){
+      this.showModal = !this.showModal
     }
+
   }
 
 }

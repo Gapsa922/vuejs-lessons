@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop">
+  <div class="backdrop" @click="closeModal">
     <div class="modal" :class="theme ? 'sale' : 'dark'">
       <h1>{{header}}</h1>
       <p>{{text}}</p>
@@ -12,8 +12,12 @@
 <script>
 
 export default {
-  props:['header','text', 'theme']
-
+  props:['header','text', 'theme'],
+  methods:{
+    closeModal(){
+      this.$emit('close')
+    },
+  }
 }
 </script>
 
@@ -28,8 +32,8 @@ export default {
 }
 .backdrop{
   top:0;
-/*   position: fixed;
-  background: rgba(0,0,0,0.5); */
+/*   position: fixed; */
+  background: rgba(0,0,0,0.5);
   width: 100%;
   height: 100%;
 }
